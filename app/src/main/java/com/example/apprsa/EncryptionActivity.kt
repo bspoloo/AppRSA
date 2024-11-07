@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -40,6 +41,6 @@ class EncryptionActivity : AppCompatActivity() {
         Log.e("Private Key", privateKey.getKey().first.toString() + "-" +privateKey.getKey().second.toString() )
         val  decrypt = Decrypt( privateKey.getKey().first, privateKey.getKey().second)
         val message = decrypt.decryptMessage(findViewById<EditText>(R.id.inputEncryptCode).text.toString())
-        findViewById<EditText>(R.id.inputDesEncryptedMessage).setText(message.toString())
+        findViewById<TextView>(R.id.inputDesEncryptedMessage).setText(message)
     }
 }
