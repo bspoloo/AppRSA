@@ -25,15 +25,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+
+    <TextView
         android:id="@+id/inputDesEncryptedMessage"
+        android:layout_width="287dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="84dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Mensaje Desencriptado"
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDecryptCode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/inputPrivateKeyDecrypt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/edittext_background"
-        android:hint="Mensaje Desencriptado"
+        android:hint="Llave privada para el mensaje"
         android:padding="12dp"
         android:textColor="#000000"
         android:textSize="16sp"
@@ -41,26 +59,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputEncryptCode" />
-
-
-    <EditText
-        android:id="@+id/inputPrivateKeyDecrypt"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="372dp"
-        android:background="@drawable/edittext_background"
-        android:hint="Llave privada para el mensaje"
-        android:padding="12dp"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputDesEncryptedMessage"
-        app:layout_constraintVertical_bias="0.273" />
 
     <Button
         android:id="@+id/buttonDecryptCode"
@@ -77,5 +75,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.824" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="202dp"
+        android:layout_height="46dp"
+        android:background="@drawable/textview_background"
+        android:gravity="center"
+        android:text="Tu mensaje desencriptado es"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/inputDesEncryptedMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputPrivateKeyDecrypt"
+        app:layout_constraintVertical_bias="0.7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

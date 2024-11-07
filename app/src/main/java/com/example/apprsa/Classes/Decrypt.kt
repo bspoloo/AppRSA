@@ -9,19 +9,17 @@ class Decrypt(private val d : Int, private val n : Int) {
         return c.modPow(d.toBigInteger(), n.toBigInteger())
     }
     fun decryptMessage(message: String): String {
-        Log.e("Message", message.toString() )
         val bigIntegerList = message
             .split(",")
+            .map { it.trim() }
             .map { BigInteger(it) }
 
         val decryptedMessage = StringBuilder()
-
         for (c in bigIntegerList) {
             val m = decryptRSA(c)
-            Log.e("Message decrypt", m.toString() )
+            Log.d("Decrypting", "the decrypted c= $c m= $m")
             decryptedMessage.append(m.toChar())
         }
-        Log.e("Message", decryptedMessage.toString() )
         return decryptedMessage.toString()
     }
 }
