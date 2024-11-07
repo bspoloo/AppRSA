@@ -37,7 +37,7 @@ class KeyGenerationActivity : AppCompatActivity() {
 
             if (inputMessage.text.toString().isNotEmpty())
             {
-                val pairNumbers : Pair<Int, Int> = generatePrimeNumbers(1,10)
+                val pairNumbers : Pair<Int, Int> = generatePrimeNumbers(10,100)
                 val generate = Generate(pairNumbers.first, pairNumbers.second)
                 val encrypt  = Encrypt(generate.getE(), generate.getN())
                 val publicKey : IKey = generate.getPublicKey()
@@ -53,12 +53,15 @@ class KeyGenerationActivity : AppCompatActivity() {
         }
         CopyButton.enableCopyButton(this)
     }
-    fun generatePrimeNumbers(min : Int, max : Int) :Pair<Int, Int>{
-        val p : Int = primeNumbers.getPrimeNumbers(min, max)
-        var q : Int = 0
-        do{
-            q = primeNumbers.getPrimeNumbers(min, max)
-        }while (p > q || p == 0)
-        return Pair(p,q)
+    fun generatePrimeNumbers(min: Int, max: Int): Pair<Int, Int> {
+        val p = primeNumbers.getPrimeNumbers(min, max)
+        var q: Int
+
+        do {
+            q = primeNumbers.getPrimeNumbers(max, max+50)
+        } while (p == q || p == 0 || q == 0)
+
+        Log.d("Your product numbers", "$p - $q")
+        return Pair(p, q)
     }
 }
